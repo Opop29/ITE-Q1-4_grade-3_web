@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gamma - ITE Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            background-color: #F0F9FF;
+            color: #2C3E50;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(180deg, #4FC3F7 0%, #29B6F6 100%);
+            color: #FFFFFF;
+            padding: 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 4px solid #FFFFFF;
+            box-shadow: 4px 0 15px rgba(79, 195, 247, 0.3);
+        }
+
+        .sidebar-header {
+            padding: 2rem 1.5rem;
+            border-bottom: 3px solid rgba(255,255,255,0.4);
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.3rem;
+            color: #FFFFFF;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0 1rem;
+        }
+
+        .sidebar-nav li {
+            margin: 0.6rem 0;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 1rem 1.2rem;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 2px solid transparent;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .sidebar-nav a:hover {
+            background: rgba(255,255,255,0.35);
+            transform: translateX(5px);
+            border-color: #FFFFFF;
+        }
+
+        .sidebar-nav a.active {
+            background: #FFFFFF;
+            color: #29B6F6;
+            transform: translateX(5px);
+            border-color: #FFFFFF;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: calc(100% - 260px);
+        }
+
+        .content-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 4px solid #4FC3F7;
+        }
+
+        .content-header h1 {
+            color: #2C3E50;
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+
+        .content-body {
+            line-height: 1.9;
+            color: #455A64;
+        }
+
+        .content-body p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-box {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border: 3px solid #4FC3F7;
+            box-shadow: 0 8px 20px rgba(79, 195, 247, 0.25);
+        }
+
+        .info-box h3 {
+            color: #0288D1;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Navigation</h2>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html">Project Alpha</a></li>
+            <li><a href="page2.html">Project Beta</a></li>
+            <li><a href="page3.html" class="active">Project Gamma</a></li>
+            <li><a href="page4.html">Project Delta</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="content-header">
+            <h1>Project Gamma</h1>
+        </div>
+        <div class="content-body">
+            <p>Project Gamma focuses on advanced systems and optimization techniques. This initiative is dedicated to improving processes and systems through systematic analysis and refinement.</p>
+            
+            <div class="info-box">
+                <h3>Optimization Focus</h3>
+                <p>We employ state-of-the-art optimization algorithms and methodologies to enhance system performance. Our approach is rooted in data-driven decision making and continuous improvement principles.</p>
+            </div>
+
+            <p>The work in Project Gamma spans multiple domains, from computational optimization to process engineering. We have developed proprietary tools and frameworks that enable rapid prototyping and deployment of optimized solutions.</p>
+
+            <p>Our commitment to excellence in optimization has resulted in significant performance gains across various metrics. We continuously refine our techniques to stay at the forefront of technological advancement.</p>
+        </div>
+    </main>
+</body>
+</html>

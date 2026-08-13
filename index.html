@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITE Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+            background-color: #F0F9FF;
+            color: #2C3E50;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 100%);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
+            border-bottom: 3px solid #FFFFFF;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-title {
+            color: #FFFFFF;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-section {
+            min-height: 85vh;
+            background: linear-gradient(180deg, #81D4FA 0%, #4FC3F7 50%, #29B6F6 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50px;
+            opacity: 0.8;
+        }
+
+        .cloud1 {
+            width: 120px;
+            height: 40px;
+            top: 15%;
+            left: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .cloud2 {
+            width: 80px;
+            height: 30px;
+            top: 25%;
+            right: 15%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .cloud3 {
+            width: 150px;
+            height: 50px;
+            bottom: 20%;
+            left: 20%;
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            background: rgba(255,255,255,0.25);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255,255,255,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cards-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #F0F9FF;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 3.5rem;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #FFFFFF;
+            border-radius: 25px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
+            border: 4px solid #4FC3F7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(79,195,247,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(79, 195, 247, 0.5);
+            border-color: #29B6F6;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:active {
+            transform: translateY(-5px) scale(0.98);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
+            display: block;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-description {
+            color: #546E7A;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 100%);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-top: 3px solid #FFFFFF;
+            box-shadow: 0 -4px 15px rgba(79, 195, 247, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-title">ITE Project</div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">ITE Project</h1>
+            <p class="hero-subtitle">Innovation Through Excellence</p>
+        </div>
+    </section>
+
+    <section class="cards-section">
+        <h2 class="section-title">Our Projects</h2>
+        <div class="cards-container">
+            <a href="page1.html" class="card">
+                <span class="card-icon">&#128640;</span>
+                <div class="card-title">Project Alpha</div>
+                <div class="card-description">Explore innovative solutions and cutting-edge technology implementations.</div>
+            </a>
+            <a href="page2.html" class="card">
+                <span class="card-icon">&#128161;</span>
+                <div class="card-title">Project Beta</div>
+                <div class="card-description">Discover creative approaches to complex engineering challenges.</div>
+            </a>
+            <a href="page3.html" class="card">
+                <span class="card-icon">&#9881;</span>
+                <div class="card-title">Project Gamma</div>
+                <div class="card-description">Learn about advanced systems and optimization techniques.</div>
+            </a>
+            <a href="page4.html" class="card">
+                <span class="card-icon">&#127919;</span>
+                <div class="card-title">Project Delta</div>
+                <div class="card-description">Experience precision engineering and quality assurance methods.</div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 ITE Project. All rights reserved.
+    </footer>
+</body>
+</html>
