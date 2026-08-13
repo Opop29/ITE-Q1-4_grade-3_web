@@ -19,7 +19,7 @@
 
         .navbar {
             background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 100%);
-            padding: 1.2rem 0;
+            padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -31,16 +31,106 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .navbar-title {
-            color: #FFFFFF;
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: #FFFFFF;
+            border: 3px solid #000000;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.8rem;
-            font-weight: 700;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-logo:hover .logo-icon {
+            transform: rotate(-10deg) scale(1.1);
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 0px #000000;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+        }
+
+        .navbar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.2rem;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 3px solid #000000;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.15);
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .navbar-nav a::before {
+            content: attr(data-icon);
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .navbar-nav a:hover::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .navbar-nav a:hover {
+            background: #FFFFFF;
+            color: #0288D1;
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
+            border-color: #000000;
+        }
+
+        .navbar-nav a:active {
+            transform: translate(0, 0);
+            box-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+        }
+
+        .nav-text {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-nav a:hover .nav-text {
+            transform: translateX(5px);
         }
 
         .hero-section {
@@ -252,7 +342,16 @@
 <body>
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="navbar-title">Experience</div>
+            <a href="index.html" class="navbar-logo">
+                <div class="logo-icon">&#128640;</div>
+                <div class="logo-text">Experience</div>
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="page1.html" data-icon="&#128640;"><span class="nav-text">Project Alpha</span></a></li>
+                <li><a href="page2.html" data-icon="&#128161;"><span class="nav-text">Project Beta</span></a></li>
+                <li><a href="page3.html" data-icon="&#9881;"><span class="nav-text">Project Gamma</span></a></li>
+                <li><a href="page4.html" data-icon="&#127919;"><span class="nav-text">Project Delta</span></a></li>
+            </ul>
         </div>
     </nav>
 
@@ -295,5 +394,221 @@
     <footer>
         &copy; 2026 Experience. All rights reserved.
     </footer>
+
+    <div class="custom-cursor" id="customCursor">🚀</div>
+
+    <style>
+        body {
+            cursor: none;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            font-size: 2rem;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            transition: transform 0.1s ease-out;
+            animation: rocketFly 0.6s ease-in-out infinite;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.4));
+        }
+
+        @keyframes rocketFly {
+            0%, 100% { transform: translate(-50%, -50%) rotate(-45deg) translateY(0); }
+            25% { transform: translate(-50%, -50%) rotate(-45deg) translateY(-8px); }
+            50% { transform: translate(-50%, -50%) rotate(-45deg) translateY(0); }
+            75% { transform: translate(-50%, -50%) rotate(-45deg) translateY(4px); }
+        }
+
+        a, button, .navbar-logo, .logo-icon, .card, .sidebar-nav a, input, textarea, select {
+            cursor: pointer !important;
+        }
+
+        .custom-cursor.hidden {
+            opacity: 0;
+        }
+    </style>
+
+    <div class="custom-cursor" id="customCursor">🚀</div>
+    <div class="rocket-trail" id="rocketTrail"></div>
+
+    <style>
+        body {
+            cursor: none;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            font-size: 2rem;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            transition: transform 0.08s ease-out, opacity 0.2s ease;
+            animation: rocketFloat 0.8s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+            will-change: transform, left, top;
+        }
+
+        .custom-cursor.hidden {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+
+        .custom-cursor.crashing {
+            animation: none;
+            transition: transform 0.15s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.3s ease;
+        }
+
+        .rocket-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.1s ease;
+        }
+
+        .rocket-trail.active {
+            opacity: 0.6;
+        }
+
+        @keyframes rocketFloat {
+            0%, 100% { transform: translate(-50%, -50%) rotate(-45deg) translateY(0); }
+            50% { transform: translate(-50%, -50%) rotate(-45deg) translateY(-6px); }
+        }
+
+        @keyframes crashBurst {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.8); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+        }
+
+        @keyframes trailFade {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(0) translateY(20px); opacity: 0; }
+        }
+
+        a, button, .navbar-logo, .logo-icon, .card, .sidebar-nav a, input, textarea, select {
+            cursor: pointer !important;
+        }
+    </style>
+
+    <script>
+        const cursor = document.getElementById('customCursor');
+        const trail = document.getElementById('rocketTrail');
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let cursorX = mouseX;
+        let cursorY = mouseY;
+        let velocityX = 0;
+        let velocityY = 0;
+        let isHovering = false;
+        let isCrashing = false;
+        let trailX = cursorX;
+        let trailY = cursorY;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        document.querySelectorAll('a, button, .navbar-logo, .logo-icon, .card, .sidebar-nav a, input, textarea, select').forEach(el => {
+            el.addEventListener('mouseenter', (e) => {
+                if (isCrashing) return;
+                isHovering = true;
+                cursor.classList.add('hidden');
+                cursorX = e.clientX;
+                cursorY = e.clientY;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                trail.classList.remove('active');
+            });
+
+            el.addEventListener('mouseleave', () => {
+                isHovering = false;
+                isCrashing = false;
+                cursor.classList.remove('hidden', 'crashing');
+                cursor.style.animation = 'rocketFloat 0.8s ease-in-out infinite';
+                cursor.style.opacity = '1';
+                trail.classList.remove('active');
+            });
+
+            el.addEventListener('click', (e) => {
+                isCrashing = true;
+                cursor.classList.remove('hidden');
+                cursor.classList.add('crashing');
+                cursor.style.animation = 'none';
+                cursorX = e.clientX;
+                cursorY = e.clientY;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                cursor.style.transform = 'translate(-50%, -50%) scale(1.3)';
+                trailX = cursorX;
+                trailY = cursorY + 25;
+                trail.style.left = trailX + 'px';
+                trail.style.top = trailY + 'px';
+                trail.style.animation = 'trailFade 0.4s ease-out forwards';
+                trail.classList.add('active');
+
+                setTimeout(() => {
+                    cursor.style.animation = 'crashBurst 0.35s ease-out forwards';
+                }, 80);
+
+                setTimeout(() => {
+                    isCrashing = false;
+                    isHovering = false;
+                    cursor.classList.remove('crashing');
+                    cursor.style.opacity = '1';
+                    cursor.style.animation = 'rocketFloat 0.8s ease-in-out infinite';
+                    cursor.style.transform = 'translate(-50%, -50%) rotate(-45deg)';
+                    trail.classList.remove('active');
+                    cursorX = mouseX;
+                    cursorY = mouseY;
+                }, 450);
+            });
+        });
+
+        function animateCursor() {
+            if (!isHovering && !isCrashing) {
+                const dx = mouseX - cursorX;
+                const dy = mouseY - cursorY;
+                velocityX += dx * 0.12;
+                velocityY += dy * 0.12;
+                velocityX *= 0.72;
+                velocityY *= 0.72;
+                cursorX += velocityX;
+                cursorY += velocityY;
+
+                const speed = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
+                const targetAngle = speed > 0.5 ? Math.atan2(velocityY, velocityX) * (180 / Math.PI) : -45;
+                const clampedAngle = Math.max(-55, Math.min(55, targetAngle));
+
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                cursor.style.transform = `translate(-50%, -50%) rotate(${clampedAngle}deg)`;
+
+                if (speed > 3) {
+                    trailX += (cursorX - trailX) * 0.3;
+                    trailY = cursorY + 18 + Math.sin(Date.now() / 100) * 3;
+                    trail.style.left = trailX + 'px';
+                    trail.style.top = trailY + 'px';
+                    trail.style.animation = 'none';
+                    trail.style.opacity = Math.min(0.5, speed / 15);
+                    trail.classList.add('active');
+                } else {
+                    trail.classList.remove('active');
+                }
+            }
+            requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
+    </script>
 </body>
 </html>
