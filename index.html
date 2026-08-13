@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience</title>
+    <title>Grade 3 Science Adventure</title>
     <style>
         * {
             margin: 0;
@@ -18,13 +18,20 @@
         }
 
         .navbar {
-            background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 100%);
-            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 50%, #4FC3F7 100%);
+            background-size: 200% 200%;
+            animation: navbarShimmer 3s ease-in-out infinite;
+            padding: 1rem 0.8rem;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
+            box-shadow: 0 4px 20px rgba(79, 195, 247, 0.5);
             border-bottom: 4px solid #000000;
+        }
+
+        @keyframes navbarShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .navbar-container {
@@ -41,47 +48,80 @@
             gap: 1.5rem;
             text-decoration: none;
             cursor: pointer;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             background: #FFFFFF;
             border: 3px solid #000000;
-            border-radius: 12px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
+            font-size: 2rem;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(79, 195, 247, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
         }
 
         .navbar-logo:hover .logo-icon {
-            transform: rotate(-10deg) scale(1.1);
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
+            transform: rotate(-15deg) scale(1.15);
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.4);
+        }
+
+        .navbar-logo:hover .logo-icon::before {
+            top: 50%;
+            left: 50%;
         }
 
         .logo-text {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 900;
             color: #FFFFFF;
-            text-shadow: 2px 2px 0px #000000;
-            letter-spacing: 2px;
+            text-shadow: 
+                2px 2px 0px #000000,
+                0 0 20px rgba(79, 195, 247, 0.8);
+            letter-spacing: 3px;
             text-transform: uppercase;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 2px 2px 0px #000000, 0 0 10px rgba(79, 195, 247, 0.5); }
+            100% { text-shadow: 2px 2px 0px #000000, 0 0 25px rgba(79, 195, 247, 1), 0 0 40px rgba(79, 195, 247, 0.6); }
         }
 
         .navbar-nav {
             display: flex;
             list-style: none;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .navbar-nav a {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.7rem 1.2rem;
+            padding: 0.8rem 1.3rem;
             color: #FFFFFF;
             text-decoration: none;
             font-weight: 700;
@@ -89,48 +129,82 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             border: 3px solid #000000;
-            border-radius: 12px;
+            border-radius: 14px;
             background: rgba(255,255,255,0.15);
-            box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
-            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             position: relative;
             cursor: pointer;
+            overflow: hidden;
+        }
+
+        .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .navbar-nav a:hover::after {
+            width: 300px;
+            height: 300px;
         }
 
         .navbar-nav a::before {
             content: attr(data-icon);
             font-size: 1.2rem;
             opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s ease;
+            transform: translateX(-10px) scale(0.5);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             display: inline-block;
+            position: relative;
+            z-index: 2;
         }
 
         .navbar-nav a:hover::before {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateX(0) scale(1.2);
         }
 
         .navbar-nav a:hover {
             background: #FFFFFF;
             color: #0288D1;
-            transform: translate(-2px, -2px);
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
+            transform: translate(-3px, -3px) scale(1.05);
+            box-shadow: 7px 7px 0px rgba(0,0,0,0.4);
             border-color: #000000;
         }
 
         .navbar-nav a:active {
-            transform: translate(0, 0);
-            box-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+            transform: translate(0, 0) scale(0.95);
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+            transition: all 0.1s ease;
         }
 
         .nav-text {
             display: inline-block;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            z-index: 2;
         }
 
         .navbar-nav a:hover .nav-text {
-            transform: translateX(5px);
+            transform: translateX(8px);
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #FF8A80 0%, #FF5252 100%) !important;
+            border-color: #000000 !important;
+        }
+
+        .back-btn:hover {
+            background: linear-gradient(135deg, #FF5252 0%, #D32F2F 100%) !important;
+            transform: translate(-3px, -3px) scale(1.05) rotate(-2deg) !important;
         }
 
         .hero-section {
@@ -255,9 +329,16 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 900;
             color: #2C3E50;
             margin-bottom: 3.5rem;
+            text-shadow: 2px 2px 0px rgba(79, 195, 247, 0.3);
+            animation: titleBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes titleBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.02); }
         }
 
         .cards-container {
@@ -266,65 +347,201 @@
             gap: 2rem;
         }
 
-        .card {
+        .quarter-card {
             background: #FFFFFF;
-            border-radius: 25px;
+            border-radius: 30px;
             padding: 2.5rem 2rem;
             text-align: center;
             text-decoration: none;
             color: inherit;
-            display: block;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
-            border: 4px solid #4FC3F7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 320px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 4px solid #000000;
             position: relative;
             overflow: hidden;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
         }
 
-        .card::before {
+        .quarter-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(79,195,247,0.1) 0%, transparent 70%);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             opacity: 0;
             transition: opacity 0.3s ease;
+            z-index: 1;
         }
 
-        .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(79, 195, 247, 0.5);
-            border-color: #29B6F6;
-        }
-
-        .card:hover::before {
+        .quarter-card:hover::before {
             opacity: 1;
         }
 
-        .card:active {
-            transform: translateY(-5px) scale(0.98);
+        .quarter-card.q1::before {
+            background: linear-gradient(135deg, rgba(255, 138, 128, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
         }
 
-        .card-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.2rem;
+        .quarter-card.q2::before {
+            background: linear-gradient(135deg, rgba(128, 255, 138, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .quarter-card.q3::before {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .quarter-card.q4::before {
+            background: linear-gradient(135deg, rgba(100, 181, 246, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .quarter-card:hover {
+            transform: translateY(-12px) scale(1.03) rotate(1deg);
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.25);
+        }
+
+        .quarter-card:active {
+            transform: translateY(-4px) scale(0.98) rotate(-1deg);
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+        }
+
+        .card-emoji {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
             display: block;
-            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+            filter: drop-shadow(3px 6px 8px rgba(0,0,0,0.2));
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quarter-card:hover .card-emoji {
+            transform: scale(1.2) rotate(-10deg);
+            animation: wiggle 0.5s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: scale(1.2) rotate(-10deg); }
+            50% { transform: scale(1.2) rotate(10deg); }
+        }
+
+        .card-quarter {
+            font-size: 0.85rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            border: 3px solid #000000;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .q1 .card-quarter {
+            background: #FF8A80;
+            color: #FFFFFF;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+        }
+
+        .q2 .card-quarter {
+            background: #80FF8A;
+            color: #2E7D32;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+        }
+
+        .q3 .card-quarter {
+            background: #FFD740;
+            color: #5D4037;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+        }
+
+        .q4 .card-quarter {
+            background: #64B5F6;
+            color: #FFFFFF;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+        }
+
+        .quarter-card:hover .card-quarter {
+            transform: scale(1.1) rotate(-3deg);
         }
 
         .card-title {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 900;
             color: #2C3E50;
             margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
         }
 
         .card-description {
             color: #546E7A;
-            line-height: 1.7;
-            font-size: 1rem;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-arrow {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #0288D1;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quarter-card:hover .card-arrow {
+            opacity: 1;
+            transform: translateX(0);
+            animation: arrowBounce 0.6s ease-in-out infinite;
+        }
+
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(8px); }
+        }
+
+        .card-sparkle {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 3;
+        }
+
+        .quarter-card:hover .card-sparkle {
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        .card-sparkle.s1 {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .card-sparkle.s2 {
+            top: 20%;
+            right: 15%;
+            animation-delay: 0.5s;
+        }
+
+        .card-sparkle.s3 {
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 1s;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(180deg); }
         }
 
         footer {
@@ -347,10 +564,10 @@
                 <div class="logo-text">Experience</div>
             </a>
             <ul class="navbar-nav">
-                <li><a href="page1.html" data-icon="&#128640;"><span class="nav-text">Project Alpha</span></a></li>
-                <li><a href="page2.html" data-icon="&#128161;"><span class="nav-text">Project Beta</span></a></li>
-                <li><a href="page3.html" data-icon="&#9881;"><span class="nav-text">Project Gamma</span></a></li>
-                <li><a href="page4.html" data-icon="&#127919;"><span class="nav-text">Project Delta</span></a></li>
+                <li><a href="page1.html" data-icon="&#128640;"><span class="nav-text">Quarter 1</span></a></li>
+                <li><a href="page2.html" data-icon="&#128161;"><span class="nav-text">Quarter 2</span></a></li>
+                <li><a href="page3.html" data-icon="&#9881;"><span class="nav-text">Quarter 3</span></a></li>
+                <li><a href="page4.html" data-icon="&#127919;"><span class="nav-text">Quarter 4</span></a></li>
             </ul>
         </div>
     </nav>
@@ -361,75 +578,59 @@
         <div class="cloud cloud3"></div>
         <div class="hero-content">
             <h1 class="hero-title">Experience</h1>
-            <p class="hero-subtitle">Innovation Through Excellence</p>
+            <p class="hero-subtitle">Learn • Explore • Discover • Play</p>
         </div>
     </section>
 
     <section class="cards-section">
-        <h2 class="section-title">Our Projects</h2>
+        <h2 class="section-title">🌟 Grade 3 Science Adventure</h2>
         <div class="cards-container">
-            <a href="page1.html" class="card">
-                <span class="card-icon">&#128640;</span>
-                <div class="card-title">Project Alpha</div>
-                <div class="card-description">Explore innovative solutions and cutting-edge technology implementations.</div>
+            <a href="page1.html" class="card quarter-card q1">
+                <div class="card-sparkle s1">✨</div>
+                <div class="card-sparkle s2">⭐</div>
+                <div class="card-sparkle s3">✨</div>
+                <div class="card-emoji">🔬</div>
+                <div class="card-quarter">QUARTER 1</div>
+                <div class="card-title">Matter and Materials</div>
+                <div class="card-description">Discover the amazing world of solids, liquids, and gases!</div>
+                <div class="card-arrow">→</div>
             </a>
-            <a href="page2.html" class="card">
-                <span class="card-icon">&#128161;</span>
-                <div class="card-title">Project Beta</div>
-                <div class="card-description">Discover creative approaches to complex engineering challenges.</div>
+            <a href="page2.html" class="card quarter-card q2">
+                <div class="card-sparkle s1">✨</div>
+                <div class="card-sparkle s2">⭐</div>
+                <div class="card-sparkle s3">✨</div>
+                <div class="card-emoji">🧠</div>
+                <div class="card-quarter">QUARTER 2</div>
+                <div class="card-title">Living Things and Their Needs</div>
+                <div class="card-description">Explore plants, animals, and what all living things need to survive!</div>
+                <div class="card-arrow">→</div>
             </a>
-            <a href="page3.html" class="card">
-                <span class="card-icon">&#9881;</span>
-                <div class="card-title">Project Gamma</div>
-                <div class="card-description">Learn about advanced systems and optimization techniques.</div>
+            <a href="page3.html" class="card quarter-card q3">
+                <div class="card-sparkle s1">✨</div>
+                <div class="card-sparkle s2">⭐</div>
+                <div class="card-sparkle s3">✨</div>
+                <div class="card-emoji">🏃</div>
+                <div class="card-quarter">QUARTER 3</div>
+                <div class="card-title">Motion, Light, Sound, Heat and Electricity</div>
+                <div class="card-description">See how things move, glow, make music, and power up!</div>
+                <div class="card-arrow">→</div>
             </a>
-            <a href="page4.html" class="card">
-                <span class="card-icon">&#127919;</span>
-                <div class="card-title">Project Delta</div>
-                <div class="card-description">Experience precision engineering and quality assurance methods.</div>
+            <a href="page4.html" class="card quarter-card q4">
+                <div class="card-sparkle s1">✨</div>
+                <div class="card-sparkle s2">⭐</div>
+                <div class="card-sparkle s3">✨</div>
+                <div class="card-emoji">🌦️</div>
+                <div class="card-quarter">QUARTER 4</div>
+                <div class="card-title">Environment, Weather and the Sky</div>
+                <div class="card-description">Learn about our planet, weather patterns, and the stars above!</div>
+                <div class="card-arrow">→</div>
             </a>
         </div>
     </section>
 
     <footer>
-        &copy; 2026 Experience. All rights reserved.
+        &copy; 2026 Grade 3 Science Adventure. All rights reserved.
     </footer>
-
-    <div class="custom-cursor" id="customCursor">🚀</div>
-
-    <style>
-        body {
-            cursor: none;
-        }
-
-        .custom-cursor {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            font-size: 2rem;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            transition: transform 0.1s ease-out;
-            animation: rocketFly 0.6s ease-in-out infinite;
-            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.4));
-        }
-
-        @keyframes rocketFly {
-            0%, 100% { transform: translate(-50%, -50%) rotate(-45deg) translateY(0); }
-            25% { transform: translate(-50%, -50%) rotate(-45deg) translateY(-8px); }
-            50% { transform: translate(-50%, -50%) rotate(-45deg) translateY(0); }
-            75% { transform: translate(-50%, -50%) rotate(-45deg) translateY(4px); }
-        }
-
-        a, button, .navbar-logo, .logo-icon, .card, .sidebar-nav a, input, textarea, select {
-            cursor: pointer !important;
-        }
-
-        .custom-cursor.hidden {
-            opacity: 0;
-        }
-    </style>
 
     <div class="custom-cursor" id="customCursor">🚀</div>
     <div class="rocket-trail" id="rocketTrail"></div>
@@ -446,8 +647,8 @@
             font-size: 2rem;
             pointer-events: none;
             z-index: 9999;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            transition: transform 0.08s ease-out, opacity 0.2s ease;
+            transform: translate(-50%, -50%) rotate(0deg);
+            transition: transform 0.12s ease-out, opacity 0.2s ease;
             animation: rocketFloat 0.8s ease-in-out infinite;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
             will-change: transform, left, top;
@@ -479,8 +680,8 @@
         }
 
         @keyframes rocketFloat {
-            0%, 100% { transform: translate(-50%, -50%) rotate(-45deg) translateY(0); }
-            50% { transform: translate(-50%, -50%) rotate(-45deg) translateY(-6px); }
+            0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-6px); }
         }
 
         @keyframes crashBurst {
@@ -512,6 +713,7 @@
         let isCrashing = false;
         let trailX = cursorX;
         let trailY = cursorY;
+        let currentAngle = 0;
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
@@ -540,39 +742,72 @@
             });
 
             el.addEventListener('click', (e) => {
-                isCrashing = true;
-                cursor.classList.remove('hidden');
-                cursor.classList.add('crashing');
-                cursor.style.animation = 'none';
-                cursorX = e.clientX;
-                cursorY = e.clientY;
-                cursor.style.left = cursorX + 'px';
-                cursor.style.top = cursorY + 'px';
-                cursor.style.transform = 'translate(-50%, -50%) scale(1.3)';
-                trailX = cursorX;
-                trailY = cursorY + 25;
-                trail.style.left = trailX + 'px';
-                trail.style.top = trailY + 'px';
-                trail.style.animation = 'trailFade 0.4s ease-out forwards';
-                trail.classList.add('active');
+                const isCard = el.classList.contains('card');
+                
+                if (isCard) {
+                    e.preventDefault();
+                    const href = el.getAttribute('href');
+                    
+                    isCrashing = true;
+                    cursor.classList.remove('hidden');
+                    cursor.classList.add('crashing');
+                    cursor.style.animation = 'none';
+                    cursorX = e.clientX;
+                    cursorY = e.clientY;
+                    cursor.style.left = cursorX + 'px';
+                    cursor.style.top = cursorY + 'px';
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1.3)';
+                    trailX = cursorX;
+                    trailY = cursorY + 25;
+                    trail.style.left = trailX + 'px';
+                    trail.style.top = trailY + 'px';
+                    trail.style.animation = 'trailFade 0.4s ease-out forwards';
+                    trail.classList.add('active');
 
-                setTimeout(() => {
-                    cursor.style.animation = 'crashBurst 0.35s ease-out forwards';
-                }, 80);
+                    setTimeout(() => {
+                        cursor.style.animation = 'crashBurst 0.35s ease-out forwards';
+                    }, 80);
 
-                setTimeout(() => {
-                    isCrashing = false;
-                    isHovering = false;
-                    cursor.classList.remove('crashing');
-                    cursor.style.opacity = '1';
-                    cursor.style.animation = 'rocketFloat 0.8s ease-in-out infinite';
-                    cursor.style.transform = 'translate(-50%, -50%) rotate(-45deg)';
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 450);
+                } else {
+                    isCrashing = true;
+                    cursor.classList.add('hidden');
+                    cursor.classList.add('crashing');
+                    cursor.style.animation = 'none';
+                    cursorX = e.clientX;
+                    cursorY = e.clientY;
+                    cursor.style.left = cursorX + 'px';
+                    cursor.style.top = cursorY + 'px';
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1.3)';
                     trail.classList.remove('active');
-                    cursorX = mouseX;
-                    cursorY = mouseY;
-                }, 450);
+
+                    setTimeout(() => {
+                        cursor.style.animation = 'crashBurst 0.35s ease-out forwards';
+                    }, 80);
+
+                    setTimeout(() => {
+                        isCrashing = false;
+                        isHovering = false;
+                        cursor.classList.remove('crashing');
+                        cursor.style.opacity = '1';
+                        cursor.style.animation = 'rocketFloat 0.8s ease-in-out infinite';
+                        cursor.style.transform = 'translate(-50%, -50%) rotate(' + currentAngle + 'deg)';
+                        trail.classList.remove('active');
+                        cursorX = mouseX;
+                        cursorY = mouseY;
+                    }, 450);
+                }
             });
         });
+
+        function lerpAngle(a, b, t) {
+            let diff = b - a;
+            while (diff > 180) diff -= 360;
+            while (diff < -180) diff += 360;
+            return a + diff * t;
+        }
 
         function animateCursor() {
             if (!isHovering && !isCrashing) {
@@ -586,12 +821,16 @@
                 cursorY += velocityY;
 
                 const speed = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
-                const targetAngle = speed > 0.5 ? Math.atan2(velocityY, velocityX) * (180 / Math.PI) : -45;
-                const clampedAngle = Math.max(-55, Math.min(55, targetAngle));
+                let targetAngle = speed > 0.5 ? Math.atan2(velocityY, velocityX) * (180 / Math.PI) + 90 : currentAngle;
+                
+                if (targetAngle > 180) targetAngle -= 360;
+                if (targetAngle < -180) targetAngle += 360;
+
+                currentAngle = lerpAngle(currentAngle, targetAngle, 0.15);
 
                 cursor.style.left = cursorX + 'px';
                 cursor.style.top = cursorY + 'px';
-                cursor.style.transform = `translate(-50%, -50%) rotate(${clampedAngle}deg)`;
+                cursor.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
 
                 if (speed > 3) {
                     trailX += (cursorX - trailX) * 0.3;
