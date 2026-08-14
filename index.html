@@ -554,6 +554,50 @@
             border-top: 3px solid #FFFFFF;
             box-shadow: 0 -4px 15px rgba(79, 195, 247, 0.3);
         }
+
+        .card-topic-icon {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 2rem;
+            opacity: 0;
+            transform: scale(0) rotate(-180deg);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2;
+        }
+
+        .quarter-card:hover .card-topic-icon {
+            opacity: 0.3;
+            transform: scale(1) rotate(0deg);
+        }
+
+        .q1 .card-topic-icon { animation: moleculeFloat 3s ease-in-out infinite; }
+        .q2 .card-topic-icon { animation: heartbeat 1.5s ease-in-out infinite; }
+        .q3 .card-topic-icon { animation: speedBlur 2s ease-in-out infinite; }
+        .q4 .card-topic-icon { animation: cloudDrift 4s ease-in-out infinite; }
+
+        @keyframes moleculeFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(15deg); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.15); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.15); }
+            70% { transform: scale(1); }
+        }
+
+        @keyframes speedBlur {
+            0%, 100% { transform: translateX(0) blur(0px); opacity: 0.3; }
+            50% { transform: translateX(10px) blur(1px); opacity: 0.5; }
+        }
+
+        @keyframes cloudDrift {
+            0%, 100% { transform: translateX(0); opacity: 0.3; }
+            50% { transform: translateX(15px); opacity: 0.4; }
+        }
     </style>
 </head>
 <body>
@@ -593,6 +637,7 @@
                 <div class="card-quarter">QUARTER 1</div>
                 <div class="card-title">Matter and Materials</div>
                 <div class="card-description">Discover the amazing world of solids, liquids, and gases!</div>
+                <div class="card-topic-icon">⚛️</div>
                 <div class="card-arrow">→</div>
             </a>
             <a href="page2.html" class="card quarter-card q2">
@@ -603,6 +648,7 @@
                 <div class="card-quarter">QUARTER 2</div>
                 <div class="card-title">Living Things and Their Needs</div>
                 <div class="card-description">Explore plants, animals, and what all living things need to survive!</div>
+                <div class="card-topic-icon">🌿</div>
                 <div class="card-arrow">→</div>
             </a>
             <a href="page3.html" class="card quarter-card q3">
@@ -613,6 +659,7 @@
                 <div class="card-quarter">QUARTER 3</div>
                 <div class="card-title">Motion, Light, Sound, Heat and Electricity</div>
                 <div class="card-description">See how things move, glow, make music, and power up!</div>
+                <div class="card-topic-icon">⚡</div>
                 <div class="card-arrow">→</div>
             </a>
             <a href="page4.html" class="card quarter-card q4">
@@ -623,6 +670,7 @@
                 <div class="card-quarter">QUARTER 4</div>
                 <div class="card-title">Environment, Weather and the Sky</div>
                 <div class="card-description">Learn about our planet, weather patterns, and the stars above!</div>
+                <div class="card-topic-icon">🌍</div>
                 <div class="card-arrow">→</div>
             </a>
         </div>
