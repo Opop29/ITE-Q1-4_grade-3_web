@@ -13,7 +13,8 @@
 
         body {
             font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
-            background-color: #F0F9FF;
+            min-height: 100vh;
+            background: url('./media/bg-home-doodles.png') center/100% 100% no-repeat, #F0F9FF;
             color: #2C3E50;
         }
 
@@ -323,7 +324,7 @@
             padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            background-color: #F0F9FF;
+            scroll-margin-top: 80px;
         }
 
         .section-title {
@@ -598,6 +599,107 @@
             0%, 100% { transform: translateX(0); opacity: 0.3; }
             50% { transform: translateX(15px); opacity: 0.4; }
         }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.3rem;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 3px solid #000000;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.15);
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .dropdown-toggle:hover {
+            background: #FFFFFF;
+            color: #0288D1;
+            transform: translate(-3px, -3px) scale(1.05);
+            box-shadow: 7px 7px 0px rgba(0,0,0,0.4);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            min-width: 220px;
+            list-style: none;
+            padding: 0.5rem 0;
+            margin: 0;
+            background: #FFFFFF;
+            border: 3px solid #000000;
+            border-radius: 14px;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
+            z-index: 1001;
+        }
+
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 1.2rem;
+            color: #2C3E50;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #E1F5FE;
+            color: #0288D1;
+            padding-left: 1.6rem;
+        }
+
+        .cards-scroll-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.3rem;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 3px solid #000000;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.15);
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .cards-scroll-btn:hover {
+            background: #FFFFFF;
+            color: #0288D1;
+            transform: translate(-3px, -3px) scale(1.05);
+            box-shadow: 7px 7px 0px rgba(0,0,0,0.4);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
@@ -608,10 +710,16 @@
                 <div class="logo-text">Experience</div>
             </a>
             <ul class="navbar-nav">
-                <li><a href="page1.html" data-icon="&#128640;"><span class="nav-text">Quarter 1</span></a></li>
-                <li><a href="page2.html" data-icon="&#128161;"><span class="nav-text">Quarter 2</span></a></li>
-                <li><a href="page3.html" data-icon="&#9881;"><span class="nav-text">Quarter 3</span></a></li>
-                <li><a href="page4.html" data-icon="&#127919;"><span class="nav-text">Quarter 4</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Quarters ⏷</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="page1.html">🔬 Quarter 1</a></li>
+                        <li><a href="page2.html">🌱 Quarter 2</a></li>
+                        <li><a href="page3.html">⚙️ Quarter 3</a></li>
+                        <li><a href="page4.html">🌦️ Quarter 4</a></li>
+                    </ul>
+                </li>
+                <li><a href="#cards-section" class="cards-scroll-btn">Cards 📋</a></li>
             </ul>
         </div>
     </nav>
@@ -626,7 +734,7 @@
         </div>
     </section>
 
-    <section class="cards-section">
+    <section id="cards-section" class="cards-section">
         <h2 class="section-title">🌟 Grade 3 Science Adventure</h2>
         <div class="cards-container">
             <a href="page1.html" class="card quarter-card q1">
@@ -680,6 +788,29 @@
         &copy; 2026 Grade 3 Science Adventure. All rights reserved.
     </footer>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        const dropdown = document.querySelector('.dropdown');
+
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                dropdown.classList.remove('active');
+            });
+        });
+    });
+    </script>
     <canvas id="rocketParticleCanvas"></canvas>
     <div class="rocket-impact" id="rocketImpact" aria-hidden="true"></div>
     <div class="custom-cursor" id="customCursor">🚀</div>
@@ -949,6 +1080,9 @@
 
         document.addEventListener('mouseleave',()=>cursor.classList.add('hidden'));document.addEventListener('mouseenter',()=>cursor.classList.remove('hidden'));requestAnimationFrame(animate);
     })();
+    </script>
+    <script>
+const cards=document.querySelectorAll('.quarter-card');let t=!1;function u(){const e=innerHeight/2;cards.forEach(c=>{const o=c.getBoundingClientRect(),n=o.top+o.height/2,a=Math.abs(e-n),l=innerHeight/2;c.style.opacity=Math.max(.25,1-a/l*.75)});t=!1}addEventListener('scroll',()=>{t||(requestAnimationFrame(u),t=!0)});u();
     </script>
 </body>
 </html>
