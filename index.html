@@ -221,6 +221,7 @@
             overflow: hidden;
             padding-top: 5vh;
             border-bottom: 5px solid #000000;
+            scroll-margin-top: 80px;
         }
 
         .cloud {
@@ -257,6 +258,26 @@
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
+        }
+
+        .hero-science-symbol {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.7;
+            animation: scienceFloat var(--duration) ease-in-out infinite;
+            animation-delay: var(--delay);
+            font-size: var(--size);
+            left: var(--x);
+            top: var(--y);
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
+        }
+
+        @keyframes scienceFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(15deg); }
+            50% { transform: translateY(-15px) rotate(-10deg); }
+            75% { transform: translateY(-40px) rotate(5deg); }
         }
 
         .hero-content {
@@ -719,15 +740,16 @@
                         <li><a href="page4.html">🌦️ Quarter 4</a></li>
                     </ul>
                 </li>
-                <li><a href="#cards-section" class="cards-scroll-btn">Cards 📋</a></li>
+                <li><a href="#cards-section" id="scroll-btn" class="cards-scroll-btn">Cards 📋</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero-section">
+    <section id="hero-section" class="hero-section">
         <div class="cloud cloud1"></div>
         <div class="cloud cloud2"></div>
         <div class="cloud cloud3"></div>
+        <div class="hero-science-symbols" id="scienceSymbols"></div>
         <div class="hero-content">
             <h1 class="hero-title">Experience</h1>
             <p class="hero-subtitle">Learn • Explore • Discover • Play</p>
@@ -809,6 +831,46 @@
                 dropdown.classList.remove('active');
             });
         });
+
+        const scrollBtn = document.getElementById('scroll-btn');
+        const heroSection = document.getElementById('hero-section');
+        const cardsSection = document.getElementById('cards-section');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'hero-section') {
+                        scrollBtn.textContent = 'Cards 📋';
+                        scrollBtn.setAttribute('href', '#cards-section');
+                    } else if (entry.target.id === 'cards-section') {
+                        scrollBtn.textContent = 'Home 🏠';
+                        scrollBtn.setAttribute('href', '#hero-section');
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        sectionObserver.observe(heroSection);
+        sectionObserver.observe(cardsSection);
+
+        const scienceSymbols = ['⚗️', '🧬', '🔬', '⚛️', '🧪', '🌡️', '🔭', '🧫', '💊', '🔬', '⚗️', '🧬', '🌡️', '🔭', '🧪'];
+        const container = document.getElementById('scienceSymbols');
+        for (let i = 0; i < 25; i++) {
+            const span = document.createElement('span');
+            span.className = 'hero-science-symbol';
+            span.textContent = scienceSymbols[Math.floor(Math.random() * scienceSymbols.length)];
+            const size = 20 + Math.random() * 40;
+            const x = Math.random() * 90;
+            const y = Math.random() * 90;
+            const duration = 6 + Math.random() * 10;
+            const delay = Math.random() * 5;
+            span.style.setProperty('--size', size + 'px');
+            span.style.setProperty('--x', x + '%');
+            span.style.setProperty('--y', y + '%');
+            span.style.setProperty('--duration', duration + 's');
+            span.style.setProperty('--delay', delay + 's');
+            container.appendChild(span);
+        }
     });
     </script>
     <canvas id="rocketParticleCanvas"></canvas>
