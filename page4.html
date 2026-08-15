@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Quarter 4 — Environment, Weather and the Sky</title>
+<title>Quarter 3 — Motion, Light, Sound, Heat and Electricity</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -186,6 +186,24 @@ h1,h2,h3,.comp-title,.badge,.logo-text,.kicker,.mascot-label,.status,.actions bu
 .add-point{background:#fff;border:2px dashed #111;border-radius:9px;padding:7px 12px;font-weight:700;cursor:pointer;margin-top:2px}
 .form-section-label{font-weight:700;margin-top:16px;display:block}
 
+
+/* ---------- cute random slide backgrounds ---------- */
+.slide{background-size:cover;background-position:center}
+.slide.cute-a{background-image:radial-gradient(circle at 12% 18%,rgba(255,255,255,.85) 0 42px,transparent 44px),radial-gradient(circle at 88% 25%,rgba(255,255,255,.65) 0 28px,transparent 30px),linear-gradient(135deg,#E3F2FD,#FFF8E1 48%,#FCE4EC)}
+.slide.cute-b{background-image:radial-gradient(circle at 15% 82%,rgba(255,255,255,.75) 0 35px,transparent 37px),radial-gradient(circle at 84% 12%,rgba(255,255,255,.8) 0 48px,transparent 50px),linear-gradient(135deg,#F3E5F5,#E8F5E9 50%,#FFF3E0)}
+.slide.cute-c{background-image:radial-gradient(circle at 90% 78%,rgba(255,255,255,.8) 0 44px,transparent 46px),radial-gradient(circle at 10% 18%,rgba(255,255,255,.65) 0 25px,transparent 27px),linear-gradient(135deg,#FFF9C4,#E1F5FE 52%,#E8F5E9)}
+.slide.cute-d{background-image:radial-gradient(circle at 20% 25%,rgba(255,255,255,.7) 0 30px,transparent 32px),radial-gradient(circle at 80% 80%,rgba(255,255,255,.75) 0 38px,transparent 40px),linear-gradient(135deg,#FCE4EC,#EDE7F6 48%,#E0F7FA)}
+.slide.cute-e{background-image:radial-gradient(circle at 78% 18%,rgba(255,255,255,.8) 0 32px,transparent 34px),radial-gradient(circle at 18% 78%,rgba(255,255,255,.65) 0 50px,transparent 52px),linear-gradient(135deg,#FFF3E0,#F1F8E9 50%,#E3F2FD)}
+.slide.cute-f{background-image:radial-gradient(circle at 15% 20%,rgba(255,255,255,.8) 0 40px,transparent 42px),radial-gradient(circle at 85% 72%,rgba(255,255,255,.7) 0 30px,transparent 32px),linear-gradient(135deg,#E0F2F1,#FFF8E1 50%,#F3E5F5)}
+.slide.cute-g{background-image:radial-gradient(circle at 88% 18%,rgba(255,255,255,.75) 0 42px,transparent 44px),radial-gradient(circle at 12% 78%,rgba(255,255,255,.8) 0 32px,transparent 34px),linear-gradient(135deg,#E8EAF6,#FFF3E0 52%,#E0F7FA)}
+.slide.cute-h{background-image:radial-gradient(circle at 20% 80%,rgba(255,255,255,.8) 0 43px,transparent 45px),radial-gradient(circle at 80% 20%,rgba(255,255,255,.65) 0 25px,transparent 27px),linear-gradient(135deg,#F9FBE7,#E1F5FE 52%,#FCE4EC)}
+.slide.activity-slide{background-image:linear-gradient(135deg,#FFF8E1,#FCE4EC 48%,#E8EAF6)}
+.activity-card{background:rgba(255,255,255,.94);border:4px solid #111;border-radius:30px;padding:clamp(22px,4vw,42px);box-shadow:9px 9px #111}
+.activity-icon{font-size:clamp(3rem,7vw,5rem);display:inline-block;animation:activityBounce 1.8s ease-in-out infinite}
+.activity-description{white-space:pre-wrap;font-size:clamp(1.05rem,2vw,1.45rem);line-height:1.7;font-weight:700;margin-top:14px}
+.activity-note{margin-top:22px;display:inline-block;background:#FFD54F;border:3px solid #111;border-radius:14px;padding:10px 16px;font-weight:800;box-shadow:4px 4px 0 #111}
+@keyframes activityBounce{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-9px) rotate(4deg)}}
+
 @media(max-width:750px){
   .navbar{height:auto;min-height:64px;padding:12px}
   .navbar-container{flex-direction:column;gap:12px}
@@ -196,10 +214,10 @@ h1,h2,h3,.comp-title,.badge,.logo-text,.kicker,.mascot-label,.status,.actions bu
 }
 body.modal-open .navbar{display:none!important}
 
-/* Quarter 4 theme matching Page 1 */
-.badge{background:#64B5F6!important}
-.competency:hover .num{background:#64B5F6}
-.tip::before{content:'🌤️'}
+/* Quarter 3 theme matching Page 1 */
+.badge{background:#FFD740!important}
+.competency:hover .num{background:#FFD740}
+.tip::before{content:'⚡'}
 </style>
 </head>
 <body>
@@ -212,16 +230,16 @@ body.modal-open .navbar{display:none!important}
     <ul class="navbar-nav">
       <li><a href="page1.html" data-icon="🚀"><span class="nav-text">Quarter 1</span></a></li>
       <li><a href="page2.html" data-icon="💡"><span class="nav-text">Quarter 2</span></a></li>
-      <li><a href="page3.html" data-icon="⚙️"><span class="nav-text">Quarter 3</span></a></li>
-      <li><a href="page4.html" data-icon="🎯" class="active"><span class="nav-text">Quarter 4</span></a></li>
+      <li><a href="page3.html" data-icon="⚙️" class="active"><span class="nav-text">Quarter 3</span></a></li>
+      <li><a href="page4.html" data-icon="🎯"><span class="nav-text">Quarter 4</span></a></li>
     </ul>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="badge">🎯 QUARTER 4</div>
-  <h1>Environment, Weather and the Sky</h1>
-  <p>Most Essential Learning Competencies • Weeks 1–6</p>
+  <div class="badge">🏃 QUARTER 3</div>
+  <h1>Motion, Light, Sound, Heat and Electricity</h1>
+  <p>Most Essential Learning Competencies • Weeks 1–5</p>
 </section>
 
 <div class="progress-wrap">
@@ -308,13 +326,10 @@ body.modal-open .navbar{display:none!important}
         <textarea id="lessonText" rows="3" placeholder="e.g. Describe ways of using materials..."></textarea>
       </label>
 
-      <span class="form-section-label">🗣️ Discussion Points</span>
-      <div id="lessonDiscussionRows"></div>
-      <button type="button" class="add-point" onclick="addPointRow('lessonDiscussionRows')">➕ Add a discussion point</button>
-
-      <span class="form-section-label">🔍 Examples</span>
-      <div id="lessonExampleRows"></div>
-      <button type="button" class="add-point" onclick="addPointRow('lessonExampleRows')">➕ Add an example</button>
+      <span class="form-section-label">📚 Lesson Slides</span>
+      <div class="custom-slide-note">Build the lesson like a mini PowerPoint. Add Discussion, Examples, Competency, or a completely Custom slide. Each slide can have a title, text, bullet points, and an optional picture.</div>
+      <div id="lessonSlidesEditor" class="slide-editor"></div>
+      <button type="button" class="add-slide" onclick="addLessonSlide()">➕ Add Another Slide</button>
 
       <div class="panel-actions">
         <button class="btn-cancel" onclick="closeLessonForm()">Cancel</button>
@@ -328,11 +343,11 @@ body.modal-open .navbar{display:none!important}
 /* ============================================================
    DATA
    ============================================================ */
-const Q = 4; const DATA_KEY = `science-q${Q}-data`;
+const Q = 3; const DATA_KEY = `science-q${Q}-data`;
 const doneKey = id => `science-q${Q}-comp-${id}-done`;
 const actKey  = id => `science-q${Q}-comp-${id}-activity`;
 
-const DEFAULT_DATA = [{"id":"c1","week":"Weeks 1–2","text":"Relate the importance of surroundings to people and other living things.","discussion":["Discuss the importance of surroundings.","Use familiar home, school, and natural surroundings.","Connect surroundings with living things."],"examples":["Home surroundings","School surroundings","Natural surroundings"]},{"id":"c2","week":"Weeks 3–4","text":"Describe the changes in the weather over a period of time.","discussion":["Observe weather over time.","Describe changes from one observation to another.","Use a simple weather record for comparison."],"examples":["Sunny to rainy","Cloudy to sunny","Changes across several days"]},{"id":"c3","week":"Week 5","text":"Enumerate and practice safety and precautionary measures in dealing with different types of weather.","discussion":["Identify safe actions for different weather conditions.","Discuss safety and precautionary measures.","Practice or role-play safe responses."],"examples":["Safety during rain","Safety during strong winds","Safety during very hot weather"]},{"id":"c4","week":"Week 6","text":"Describe the natural objects that are found in the sky during daytime and nighttime.","discussion":["Observe natural objects in the sky.","Compare daytime and nighttime observations.","Use simple descriptions when discussing sky objects."],"examples":["Daytime: Sun","Nighttime: Moon","Nighttime: stars"]}];
+const DEFAULT_DATA = [{"id":"c1","week":"Weeks 1–3","text":"Describe the position of a person or an object in relation to a reference point such as a chair, door, or another person.","discussion":["Use familiar objects as reference points.","Describe where a person or object is located.","Practice position descriptions in the classroom."],"examples":["Beside the chair","Near the door","In front of another person"]},{"id":"c2","week":"Weeks 4–5","text":"Describe the different uses of light, sound, heat, and electricity in everyday life.","discussion":["Identify everyday examples.","Describe how light, sound, heat, and electricity are used.","Connect each example with a home or school situation."],"examples":["Light for seeing","Sound for communication","Heat for warming","Electricity for operating devices"]}];
 
 function loadData(){
   try{
@@ -427,43 +442,151 @@ const KIND_META = {
 
 function getComp(id){ return data.find(c=>c.id===id); }
 
-function openDeck(id){
-  const c = getComp(id);
-  if(!c) return;
-  currentCompId = id;
-  slides = [
-    {kind:'intro', t:c.text, p:'Essential Learning Competency'},
-    {kind:'discuss', t:'Let’s talk about it!', b:c.discussion},
-    {kind:'examples', t:'Examples to explore', e:c.examples},
-    {kind:'check', t:'Show what you know', b:['Ask learners to explain the idea in their own words.','Let learners give or identify an example.','Ask learners what they observed and why it fits the competency.']}
+function defaultSlides(c){
+  return [
+    {kind:'competency',title:'Competency',text:c.text,points:[],image:''},
+    {kind:'discussion',title:'Let’s talk about it!',text:'',points:c.discussion||[],image:''},
+    {kind:'examples',title:'Examples to explore',text:'',points:c.examples||[],image:''},
+    {kind:'check',title:'Show what you know',text:'',points:['Ask learners to explain the idea in their own words.','Let learners give or identify an example.','Ask learners what they observed and why it fits the competency.'],image:''}
   ];
-  currentSlide = 0;
+}
+function getSlides(c){
+  if(Array.isArray(c.slides) && c.slides.length) return c.slides;
+  return defaultSlides(c);
+}
+const SLIDE_META={
+  competency:{emoji:'🎯',label:'Competency',deco:'🌟'},
+  discussion:{emoji:'💬',label:'Discussion Points',deco:'💡'},
+  examples:{emoji:'🔍',label:'Examples',deco:'🌿'},
+  check:{emoji:'⭐',label:'Check for Understanding',deco:'❓'},
+  custom:{emoji:'📝',label:'Custom Slide',deco:'✨'}
+};
+function randomCuteClass(index){
+  const classes=['cute-a','cute-b','cute-c','cute-d','cute-e','cute-f','cute-g','cute-h'];
+  return classes[Math.floor(Math.random()*classes.length)];
+}
+
+function randomCuteClass(index){
+  const classes=['cute-a','cute-b','cute-c','cute-d','cute-e','cute-f','cute-g','cute-h'];
+  return classes[index % classes.length];
+}
+
+function buildAllLessonSlides(c){
+  // IMPORTANT: Use the teacher-saved custom slides first.
+  let result = Array.isArray(c.slides) && c.slides.length
+    ? c.slides.map(s => ({...s}))
+    : defaultSlides(c);
+
+  // Backward-compatible support for lessons that may have customSlides.
+  if(Array.isArray(c.customSlides) && c.customSlides.length){
+    result = result.concat(c.customSlides.map(s => ({
+      kind: 'custom',
+      title: s.title || 'Custom Slide',
+      text: s.text || '',
+      points: Array.isArray(s.points) ? s.points : [],
+      image: s.image || ''
+    })));
+  }
+
+  // Activity is ALWAYS the final slide when it exists.
+  const activity = getActivity(c.id);
+  if(activity){
+    result = result.filter(s => s.kind !== 'activity');
+    result.push({
+      kind:'activity',
+      title:activity.title || 'Class Activity',
+      text:activity.desc || '',
+      points:[],
+      image:''
+    });
+  }
+  return result;
+}
+
+function renderDeckSlides(c){
+  slides = buildAllLessonSlides(c);
+
   document.getElementById('slides').innerHTML = slides.map((s,n)=>{
-    const meta = KIND_META[s.kind];
-    return `<section class="slide ${meta.cls} ${n?'':'active'}" data-i="${n}" data-deco="${meta.deco}" style="--kind-color:${meta.color}">
+    if(s.kind === 'activity'){
+      return `
+      <section class="slide activity-slide ${randomCuteClass(n)} ${n?'':'active'}"
+               data-i="${n}" data-deco="🎯">
+        <div class="slide-inner">
+          <div class="activity-card">
+            <div class="activity-icon">🎯</div>
+            <div class="kicker-pill">
+              <span class="dot" style="background:#F06292"></span>
+              Lesson Activity
+            </div>
+            <h2>${esc(s.title || 'Class Activity')}</h2>
+            <div class="activity-description">${esc(s.text || '')}</div>
+            <div class="activity-note">🌟 Let’s try it! • Think • Do • Share</div>
+          </div>
+        </div>
+        <div class="slide-band">🎯 ⭐ ✨ 🎉 🌟 🎯 ⭐ ✨ 🎉 🌟</div>
+      </section>`;
+    }
+
+    const m = SLIDE_META[s.kind] || SLIDE_META.custom;
+    const points = Array.isArray(s.points) ? s.points : [];
+
+    return `
+    <section class="slide ${randomCuteClass(n)} ${n?'':'active'}"
+             data-i="${n}" style="--kind-color:var(--sky)">
       <div class="slide-inner">
         <div class="slide-header">
           <div class="mascot-box">
-            <div class="mascot"><div class="cheek l"></div><div class="cheek r"></div><div class="smile"></div></div>
-            <div class="mascot-badge">${meta.emoji}</div>
+            <div class="mascot">
+              <div class="cheek l"></div>
+              <div class="cheek r"></div>
+              <div class="smile"></div>
+            </div>
+            <div class="mascot-badge">${m.emoji}</div>
           </div>
-          <div class="kicker-pill"><span class="dot"></span>${meta.kicker(c)}</div>
+          <div class="kicker-pill">
+            <span class="dot"></span>${esc(m.label)}
+          </div>
         </div>
+
         <div class="content-panel">
-          <h2>${esc(s.t)}</h2>
-          ${s.p?`<p>${esc(s.p)}</p>`:''}
+          <h2>${esc(s.title || m.label)}</h2>
+          ${s.text ? `<p style="white-space:pre-wrap">${esc(s.text)}</p>` : ''}
         </div>
-        ${s.b?`<div class="speech-panel" style="margin-top:18px"><ul>${s.b.map(x=>`<li data-bullet="${meta.bullet}">${esc(x)}</li>`).join('')}</ul></div>`:''}
-        ${s.e?`<div class="examples" style="margin-top:18px">${s.e.map(x=>`<div class="example">${esc(x)}</div>`).join('')}</div>`:''}
+
+        ${points.length ? `
+          <div class="speech-panel" style="margin-top:18px">
+            <ul>
+              ${points.map(x=>`<li data-bullet="${m.deco}">${esc(x)}</li>`).join('')}
+            </ul>
+          </div>` : ''}
+
+        ${s.image ? `
+          <div style="margin-top:20px;text-align:center">
+            <img src="${s.image}" alt="Lesson picture"
+              style="max-width:100%;max-height:310px;border:3px solid #111;
+              border-radius:18px;box-shadow:5px 5px #111;object-fit:contain;
+              background:#fff">
+          </div>` : ''}
       </div>
-      <div class="slide-band">${(meta.deco+' ').repeat(10)}</div>
+      <div class="slide-band">${(m.deco+' ').repeat(10)}</div>
     </section>`;
   }).join('');
-  document.getElementById('dots').innerHTML = slides.map((s,n)=>`<div class="dot ${n?'':'active'}" onclick="goToSlide(${n})"></div>`).join('');
-  showPanel('slides');
-  updateActivityButton();
-  document.getElementById('modal').classList.add('show');
-  syncModalOpenState();
+
+  document.getElementById('dots').innerHTML =
+    slides.map((s,n)=>`
+      <div class="dot ${n?'':'active'}"
+           onclick="goToSlide(${n})"
+           title="Slide ${n+1}"></div>
+    `).join('');
+
+  updateSlideUI();
+}
+
+function openDeck(id){
+  const c=getComp(id); if(!c)return;
+  currentCompId=id; renderDeckSlides(c); currentSlide=0;
+  showPanel('slides'); updateActivityButton();
+  document.getElementById('modal').classList.add('show'); syncModalOpenState();
 }
 function closeDeck(){
   document.getElementById('modal').classList.remove('show');
@@ -515,14 +638,31 @@ function closeActivityForm(){
   showPanel(existing ? 'activityView' : 'slides');
   if(existing) showActivityView();
 }
+
 function saveActivityFn(){
   const title = document.getElementById('activityTitle').value.trim();
-  const desc = document.getElementById('activityDesc').value.trim();
-  if(!title){ alert('Please give the activity a title before saving.'); return; }
-  localStorage.setItem(actKey(currentCompId), JSON.stringify({title, desc}));
+  const desc  = document.getElementById('activityDesc').value.trim();
+
+  if(!title){
+    alert('Please give the activity a title before saving.');
+    return;
+  }
+
+  localStorage.setItem(
+    actKey(currentCompId),
+    JSON.stringify({title, desc})
+  );
+
+  // Rebuild from the SAME saved lesson data and put activity at the end.
+  const c = getComp(currentCompId);
+  renderDeckSlides(c);
+
+  currentSlide = slides.length - 1;
+  updateSlideUI();
   updateActivityButton();
   showActivityView();
 }
+
 function showActivityView(){
   const existing = getActivity(currentCompId);
   if(!existing){ showPanel('slides'); return; }
@@ -531,13 +671,26 @@ function showActivityView(){
   showPanel('activityView');
 }
 function editActivityFromView(){ openActivityForm(); }
+
 function deleteActivity(){
   if(!confirm('Delete this activity? This cannot be undone.')) return;
+
   localStorage.removeItem(actKey(currentCompId));
+
+  const c = getComp(currentCompId);
+  renderDeckSlides(c);
+
+  currentSlide = Math.min(
+    currentSlide,
+    Math.max(0, slides.length - 1)
+  );
+
+  updateSlideUI();
   updateActivityButton();
   showPanel('slides');
   renderList();
 }
+
 function backToSlides(){ showPanel('slides'); }
 
 /* ============================================================
@@ -581,72 +734,66 @@ function deleteLesson(id){
    ADD / EDIT LESSON FORM
    ============================================================ */
 let editingLessonId = null;
-
-function addPointRow(containerId, value=''){
-  const wrap = document.getElementById(containerId);
-  const row = document.createElement('div');
-  row.className = 'point-row';
-  const input = document.createElement('input');
-  input.type = 'text';
-  input.className = 'point-input';
-  input.value = value;
-  input.placeholder = 'Type here...';
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.className = 'remove-point';
-  btn.textContent = '✕';
-  btn.onclick = () => row.remove();
-  row.appendChild(input);
-  row.appendChild(btn);
-  wrap.appendChild(row);
+function slideEditorCard(slide={}, index=0){
+  const s={kind:slide.kind||'custom',title:slide.title||'',text:slide.text||'',points:Array.isArray(slide.points)?slide.points:[],image:slide.image||''};
+  const div=document.createElement('div'); div.className='slide-edit-card'; div.dataset.image=s.image;
+  div.innerHTML=`<div class="slide-edit-head"><strong>Slide ${index+1}</strong><button type="button" class="slide-remove">🗑️ Remove</button></div>
+    <div class="slide-grid">
+      <label class="field">Slide Type<select class="slide-type"><option value="competency">🎯 Competency</option><option value="discussion">💬 Discussion Points</option><option value="examples">🔍 Examples</option><option value="check">⭐ Check for Understanding</option><option value="custom">📝 Custom Slide</option></select></label>
+      <label class="field">Slide Title<input type="text" class="slide-title" placeholder="Enter slide title"></label>
+    </div>
+    <label class="field">Text / Discussion<textarea class="slide-text" rows="4" placeholder="Type the explanation, discussion, or lesson text here..."></textarea></label>
+    <label class="field">Bullet Points <span style="font-weight:600;color:#607080">(one point per line)</span><textarea class="slide-points" rows="4" placeholder="Point 1
+Point 2
+Point 3"></textarea></label>
+    <label class="field">Picture <input type="file" class="slide-image" accept="image/*"><img class="slide-image-preview" alt="Preview"></label>`;
+  div.querySelector('.slide-type').value=s.kind;
+  div.querySelector('.slide-title').value=s.title;
+  div.querySelector('.slide-text').value=s.text;
+  div.querySelector('.slide-points').value=s.points.join('\n');
+  const prev=div.querySelector('.slide-image-preview');
+  if(s.image){prev.src=s.image;prev.style.display='block';}
+  div.querySelector('.slide-remove').onclick=()=>{div.remove();renumberLessonSlides()};
+  div.querySelector('.slide-image').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{div.dataset.image=r.result;prev.src=r.result;prev.style.display='block'};r.readAsDataURL(f)};
+  return div;
 }
-function clearRows(containerId){ document.getElementById(containerId).innerHTML=''; }
-function readRows(containerId){
-  return Array.from(document.querySelectorAll(`#${containerId} .point-input`))
-    .map(i=>i.value.trim()).filter(Boolean);
+function renumberLessonSlides(){document.querySelectorAll('#lessonSlidesEditor .slide-edit-card').forEach((x,i)=>x.querySelector('.slide-edit-head strong').textContent='Slide '+(i+1));}
+function addLessonSlide(slide={}){const wrap=document.getElementById('lessonSlidesEditor');wrap.appendChild(slideEditorCard(slide,wrap.children.length));renumberLessonSlides();}
+function clearLessonSlides(){document.getElementById('lessonSlidesEditor').innerHTML='';}
+function readLessonSlides(){
+  return Array.from(document.querySelectorAll('#lessonSlidesEditor .slide-edit-card')).map(card=>({
+    kind:card.querySelector('.slide-type').value,
+    title:card.querySelector('.slide-title').value.trim(),
+    text:card.querySelector('.slide-text').value.trim(),
+    points:card.querySelector('.slide-points').value.split(/\n+/).map(x=>x.trim()).filter(Boolean),
+    image:card.dataset.image||''
+  })).filter(s=>s.title||s.text||s.points.length||s.image);
 }
-
 function openLessonForm(id){
-  editingLessonId = id;
-  const isEdit = !!id;
-  document.getElementById('lessonFormTitle').textContent = isEdit ? '✏️ Edit Lesson' : '➕ Add a New Lesson';
-  clearRows('lessonDiscussionRows');
-  clearRows('lessonExampleRows');
+  editingLessonId=id; const isEdit=!!id;
+  document.getElementById('lessonFormTitle').textContent=isEdit?'✏️ Edit Lesson':'➕ Add a New Lesson';
+  clearLessonSlides();
   if(isEdit){
-    const c = getComp(id);
-    document.getElementById('lessonWeek').value = c.week;
-    document.getElementById('lessonText').value = c.text;
-    (c.discussion.length?c.discussion:['']).forEach(v=>addPointRow('lessonDiscussionRows', v));
-    (c.examples.length?c.examples:['']).forEach(v=>addPointRow('lessonExampleRows', v));
-  } else {
-    document.getElementById('lessonWeek').value = '';
-    document.getElementById('lessonText').value = '';
-    addPointRow('lessonDiscussionRows');
-    addPointRow('lessonExampleRows');
+    const c=getComp(id); document.getElementById('lessonWeek').value=c.week; document.getElementById('lessonText').value=c.text;
+    const ss=getSlides(c); ss.forEach(slide=>addLessonSlide(slide));
+  }else{
+    document.getElementById('lessonWeek').value=''; document.getElementById('lessonText').value='';
+    addLessonSlide({kind:'competency',title:'Competency',text:''});
+    addLessonSlide({kind:'discussion',title:'Discussion Points',points:['']});
+    addLessonSlide({kind:'examples',title:'Examples',points:['']});
   }
-  document.getElementById('lessonModal').classList.add('show');
-  syncModalOpenState();
+  document.getElementById('lessonModal').classList.add('show'); syncModalOpenState();
 }
-function closeLessonForm(){
-  document.getElementById('lessonModal').classList.remove('show');
-  syncModalOpenState();
-}
+function closeLessonForm(){document.getElementById('lessonModal').classList.remove('show');syncModalOpenState();}
 function saveLesson(){
-  const week = document.getElementById('lessonWeek').value.trim();
-  const text = document.getElementById('lessonText').value.trim();
-  const discussion = readRows('lessonDiscussionRows');
-  const examples = readRows('lessonExampleRows');
-  if(!week || !text){ alert('Please fill in the week/unit label and the competency text.'); return; }
-  if(editingLessonId){
-    const c = getComp(editingLessonId);
-    c.week = week; c.text = text; c.discussion = discussion; c.examples = examples;
-  } else {
-    data.push({id: uid(), week, text, discussion, examples});
-  }
-  saveData();
-  closeLessonForm();
-  renderManageList();
-  renderList();
+  const week=document.getElementById('lessonWeek').value.trim();
+  const text=document.getElementById('lessonText').value.trim();
+  let lessonSlides=readLessonSlides();
+  if(!week||!text){alert('Please fill in the week/unit label and the competency text.');return;}
+  if(!lessonSlides.length) lessonSlides=defaultSlides({week,text,discussion:[],examples:[]});
+  if(editingLessonId){const c=getComp(editingLessonId);c.week=week;c.text=text;c.slides=lessonSlides;c.discussion=(lessonSlides.find(s=>s.kind==='discussion')||{}).points||[];c.examples=(lessonSlides.find(s=>s.kind==='examples')||{}).points||[];}
+  else{data.push({id:uid(),week,text,slides:lessonSlides,discussion:(lessonSlides.find(s=>s.kind==='discussion')||{}).points||[],examples:(lessonSlides.find(s=>s.kind==='examples')||{}).points||[]});}
+  saveData();closeLessonForm();renderManageList();renderList();
 }
 
 /* ============================================================
